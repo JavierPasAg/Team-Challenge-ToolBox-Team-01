@@ -1,17 +1,24 @@
-'''
-Esta función debe recibir como argumento un dataframe, un entero (umbral_categoria) y un float (umbral_continua).
-La función debe devolver un dataframe con dos columnas "nombre_variable", "tipo_sugerido" que tendrá tantas filas como columnas el dataframe.
-En cada fila irá el nombre de una de las columnas y una sugerencia del tipo de variable.
-Esta sugerencia se hará siguiendo las siguientes pautas:
-
-Si la cardinalidad es 2, asignara "Binaria"
-Si la cardinalidad es menor que umbral_categoria asignara "Categórica"
-Si la cardinalidad es mayor o igual que umbral_categoria, entonces entra en juego el tercer argumento:
-    Si además el porcentaje de cardinalidad es superior o igual a umbral_continua, asigna "Numerica Continua"
-En caso contrario, asigna "Numerica Discreta"
-'''
 import pandas as pd
 def tipifica_variables(df,umbral_categoria,umbral_continua, show_cardinalidad = False):
+    '''
+    Esta función calcula la cardinalidad del dataframe recibido como parámetro 
+    y clasifica cada columna del mismo como una variable a la que le asigna una sugerencia del tipo de variable
+    que considera en función de los umbrales indicados.
+    Esta clasificación la devuelve en forma de un nuevo dataframe.
+    También puede mostrar la cardinalidad como una columna extra si se especifica.
+
+    Argumentos:
+    df (DataFrame): Un Dataframe cualquiera del cuál se quiera obtener la cardinalidad de sus columnas y la sugerencia de tipos.
+    umbral_categoria (int): Un entero cuyo valor varía en función del dataframe recibido y que determina si una variable es categórica o no.
+    umbral_continua (float): Un float que representa un porcentaje que categoriza las variables en numéricas continuas o discretas.
+    show_cardinalidad (bool): Un valor True o False que establece si se quiere mostrar en el dataframe resultante la cardinalidad o no.
+        valor False por defecto.
+
+    Retorna:
+    Esta función devuelve un dataframe con las columnas del recibido como parámetro, establecidas como variables en una primera columna,
+    su "tipo sugerido" con el resultado de la clasificación y una tercera columna opcional "cardinalidad" que mostraría 
+    la cardinalidad de cada variable.
+    '''
     columnas = []
     cardinalidades = []
     tipos = []
