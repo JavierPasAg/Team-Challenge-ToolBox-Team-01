@@ -8,11 +8,11 @@ def tipifica_variables(df,umbral_categoria,umbral_continua, show_cardinalidad = 
     También puede mostrar la cardinalidad como una columna extra si se especifica.
 
     Argumentos:
-    df (DataFrame): Un Dataframe cualquiera del cuál se quiera obtener la cardinalidad de sus columnas y la sugerencia de tipos.
-    umbral_categoria (int): Un entero cuyo valor varía en función del dataframe recibido y que determina si una variable es categórica o no.
-    umbral_continua (float): Un float que representa un porcentaje que categoriza las variables en numéricas continuas o discretas.
-    show_cardinalidad (bool): Un valor True o False que establece si se quiere mostrar en el dataframe resultante la cardinalidad o no.
-        valor False por defecto.
+        df (DataFrame): Un Dataframe cualquiera del cuál se quiera obtener la cardinalidad de sus columnas y la sugerencia de tipos.
+        umbral_categoria (int): Un entero cuyo valor varía en función del dataframe recibido y que determina si una variable es categórica o no.
+        umbral_continua (float): Un float que representa un porcentaje que categoriza las variables en numéricas continuas o discretas.
+        show_cardinalidad (bool): Un valor True o False que establece si se quiere mostrar en el dataframe resultante la cardinalidad o no.
+            valor False por defecto.
 
     Retorna:
     Esta función devuelve un dataframe con las columnas del recibido como parámetro, establecidas como variables en una primera columna,

@@ -1,10 +1,19 @@
 # Ejecutable con las funciones implementadas
 import pandas as pd
 from funciones.tipifica_variables import tipifica_variables
-
+from funciones.get_features_cat_regression import get_features_cat_regression
 
 df_titanic = pd.read_csv("./data/titanic.csv")
-print(df_titanic.head(5))
-df_result = tipifica_variables(df_titanic,2,2,show_cardinalidad=True)
+df_aviones = pd.read_excel("./data/dataset_aviones.xlsx")
 
-print(df_result.head(5))
+prueba_tipifica_1 = tipifica_variables(df_titanic,2,20,show_cardinalidad=True)
+print(prueba_tipifica_1)
+
+prueba_tipifica_2 = tipifica_variables(df_aviones,2,20,show_cardinalidad=True)
+print(prueba_tipifica_2)
+
+prueba_cat_regression_1 = get_features_cat_regression(df_titanic,"age")
+print(prueba_cat_regression_1)
+
+prueba_cat_regression_2 = get_features_cat_regression(df_aviones,"consumo_kg")
+print(prueba_cat_regression_2)
