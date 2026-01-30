@@ -1,25 +1,24 @@
-'''
-Esta función recibe un dataframe y una columna del mismo, que debería ser el target de un modelo de regresión,
-por lo que debe ser debe ser una variable numérica continua o discreta
-
-Como resultado devolverá una lista de las variables categóricas del dataframe cuya relación con la variable target 
-supere en confianza el test correspondiente.
-
-Argumentos:
-    df (DataFrame): Un Dataframe cualquiera cuya variable target vamos a evaluar su relación con las categóricas del mismo.
-    target_col (str): Nombre de la columna numérica del Dataframe.
-    p_value (float): Nivel de confianza estadística
-        valor 0.05 por defecto.
-
-Retorna:
-Una lista con los nombre de las columnas categóricas cuya confianza sea significativa.
-'''
-
 import pandas as pd
 import numpy as np
 from scipy.stats import mannwhitneyu, f_oneway
 def get_features_cat_regression(df,target_col,pvalue = 0.05):
 
+    '''
+    Esta función recibe un dataframe y una columna del mismo, que debería ser el target de un modelo de regresión,
+    por lo que debe ser debe ser una variable numérica continua o discreta
+
+    Como resultado devolverá una lista de las variables categóricas del dataframe cuya relación con la variable target 
+    supere en confianza el test correspondiente.
+
+    Argumentos:
+        df (DataFrame): Un Dataframe cualquiera cuya variable target vamos a evaluar su relación con las categóricas del mismo.
+        target_col (str): Nombre de la columna numérica del Dataframe.
+        p_value (float): Nivel de confianza estadística
+            valor 0.05 por defecto.
+
+    Retorna:
+Una lista con los nombre de las columnas categóricas cuya confianza sea significativa.
+'''
 
     if not (isinstance(df,pd.DataFrame) and (isinstance(target_col,str)) and (isinstance(pvalue,float))):
         if isinstance(pvalue,int):
