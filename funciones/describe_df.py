@@ -2,10 +2,10 @@
 
 import pandas as pd
 
-df = pd.read_csv("data/titanic.csv")
-df.head()
+#df = pd.read_csv("data/titanic.csv")
+#df.head()
 
-
+df = pd.read_excel("./data/dataset_aviones.xlsx")
 
 
 def describe_df(df):
